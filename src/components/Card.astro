@@ -1,0 +1,31 @@
+---
+import { CATEGORIES, readTime } from '../lib/site';
+const { entry, variant = 'card' } = Astro.props;
+const d = entry.data;
+const href = `/stories/${entry.id}/`;
+const meta = `By ${d.author}, ${readTime(entry.body)} min read`;
+const label = CATEGORIES[d.category].label;
+---
+{variant === 'side' ? (
+  <article><a href={href}>
+    <span class={`tag ${d.category}`}>{label}</span>
+    <h3>{d.title}</h3>
+    <span class="meta">{meta}</span>
+  </a></article>
+) : variant === 'feed' ? (
+  <article>
+    <a href={href}>{d.image ? <img class="r43" src={d.image} alt={d.imageAlt ?? ''} loading="lazy" /> : <div class="ph r43">Photo</div>}</a>
+    <a href={href}>
+      <span class={`tag ${d.category}`}>{label}</span>
+      <h3>{d.title}</h3>
+      <span class="meta">{meta}</span>
+    </a>
+  </article>
+) : (
+  <article class="card"><a href={href}>
+    {d.image ? <img class="r169" src={d.image} alt={d.imageAlt ?? ''} loading="lazy" /> : <div class="ph r169">Photo</div>}
+    <h3>{d.title}</h3>
+    <p>{d.summary}</p>
+    <span class="meta">{meta}</span>
+  </a></article>
+)}

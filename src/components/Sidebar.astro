@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import { byDate } from '../lib/site';
+import Ad from './Ad.astro';
+const heads = (await getCollection('stories')).sort(byDate).slice(0, 5);
+---
+<aside aria-label="Sidebar">
+  <Ad size="300x250" />
+  <section class="box">
+    <h2>Latest headlines</h2>
+    <ul class="headlines">
+      {heads.map((s) => <li><a href={`/stories/${s.id}/`}>{s.data.title}</a></li>)}
+    </ul>
+  </section>
+  <Ad size="300x600" />
+</aside>

@@ -1,0 +1,11 @@
+---
+const { size } = Astro.props;
+const [w, h] = size.split('x');
+---
+<div class="ad">
+  <small>Advertisement</small>
+  <div class="slot" style={`aspect-ratio:${w}/${h};max-width:${w}px`}>
+    <span>{w} x {h}</span>
+    <img src={`/images/ads/ad-${size}.jpg`} alt="Advertisement" width={w} height={h} onerror="this.remove()" />
+  </div>
+</div>

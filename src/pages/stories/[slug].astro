@@ -1,0 +1,72 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/Card.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { CATEGORIES, byDate, fmtDate, readTime } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('stories');
+  return stories.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const related = (await getCollection('stories'))
+  .filter((s) => s.data.category === d.category && s.id !== entry.id)
+  .sort(byDate)
+  .slice(0, 2);
+---
+<Base title={d.title} description={d.summary} current={d.category} image={d.image}>
+  <main class="page">
+    <article>
+      <header class="story-head">
+        <a class={`tag ${d.category}`} href={`/category/${d.category}/`}>{CATEGORIES[d.category].label}</a>
+        <h1>{d.title}</h1>
+        <p class="dek">{d.summary}</p>
+        <div class="byline meta">By {d.author}, {fmtDate(d.date)}, {readTime(entry.body)} min read</div>
+      </header>
+
+      {d.image && (
+        <figure class="hero">
+          <img src={d.image} alt={d.imageAlt ?? ''} />
+          {(d.imageCaption || d.imageCredit) && <figcaption>{d.imageCaption} {d.imageCredit && `Photo: ${d.imageCredit}`}</figcaption>}
+        </figure>
+      )}
+
+      <div class="article"><Content /></div>
+
+      <div class="share">
+        <a data-share="whatsapp" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+        <a data-share="x" href="#" target="_blank" rel="noopener">Share on X</a>
+        <a data-share="facebook" href="#" target="_blank" rel="noopener">Share on Facebook</a>
+      </div>
+
+      {d.sources.length > 0 && (
+        <section class="sources">
+          <h2>Sources</h2>
+          <ul>
+            {d.sources.map((s) => <li>{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.name}</a> : s.name}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {related.length > 0 && (
+        <section class="sec">
+          <div class="sec-head" style={`--c:${CATEGORIES[d.category].color}`}><h2>Related stories</h2></div>
+          <div class="grid2">{related.map((s) => <Card entry={s} />)}</div>
+        </section>
+      )}
+    </article>
+    <Sidebar />
+  </main>
+  <script is:inline>
+    var u = encodeURIComponent(location.href), t = encodeURIComponent(document.title);
+    var m = {
+      whatsapp: 'https://wa.me/?text=' + t + '%20' + u,
+      x: 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u,
+      facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u
+    };
+    document.querySelectorAll('[data-share]').forEach(function (a) { a.href = m[a.dataset.share]; });
+  </script>
+</Base>

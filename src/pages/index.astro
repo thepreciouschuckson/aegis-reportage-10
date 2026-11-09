@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Ad from '../components/Ad.astro';
+import { CATEGORIES, byDate, fmtDate, readTime } from '../lib/site';
+
+const all = (await getCollection('stories')).sort(byDate);
+const lead = all.find((s) => s.data.featured) ?? all[0];
+const rest = all.filter((s) => s !== lead);
+const side = rest.slice(0, 3);
+const feed = rest.slice(3, 7);
+---
+<Base current="home">
+  <main class="page">
+    <div>
+      {lead && (
+        <section class="lead" aria-label="Top stories">
+          <article class="lead-main">
+            <a href={`/stories/${lead.id}/`}>
+              {lead.data.image
+                ? <img class="r169" src={lead.data.image} alt={lead.data.imageAlt ?? ''} />
+                : <div class="ph r169">Lead photo, 16:9</div>}
+              {lead.data.imageCaption && <p class="cap">{lead.data.imageCaption}{lead.data.imageCredit && ` Photo: ${lead.data.imageCredit}`}</p>}
+              <span class={`tag ${lead.data.category}`}>{CATEGORIES[lead.data.category].label}</span>
+              <h2>{lead.data.title}</h2>
+              <p>{lead.data.summary}</p>
+              <span class="meta">By {lead.data.author}, {fmtDate(lead.data.date)}, {readTime(lead.body)} min read</span>
+            </a>
+          </article>
+          <div class="lead-side">
+            {side.map((s) => <Card entry={s} variant="side" />)}
+          </div>
+        </section>
+      )}
+
+      <div style="margin-top:28px"><Ad size="728x90" /></div>
+
+      {feed.length > 0 && (
+        <section class="sec" aria-labelledby="latest-h">
+          <div class="sec-head"><h2 id="latest-h">Latest stories</h2></div>
+          <div class="feed">{feed.map((s) => <Card entry={s} variant="feed" />)}</div>
+        </section>
+      )}
+
+      {Object.entries(CATEGORIES).map(([key, c]) => {
+        const items = all.filter((s) => s.data.category === key).slice(0, key === 'national' ? 4 : 2);
+        return (
+          <section class="sec" id={key} style={`--c:${c.color}`}>
+            <div class="sec-head"><h2>{c.label}</h2><a href={`/category/${key}/`}>See all</a></div>
+            {items.length
+              ? <div class="grid2">{items.map((s) => <Card entry={s} />)}</div>
+              : <p class="empty">Stories coming soon.</p>}
+          </section>
+        );
+      })}
+    </div>
+    <Sidebar />
+  </main>
+</Base>

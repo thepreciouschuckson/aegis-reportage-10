@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+import { CATEGORIES, byDate } from '../lib/site';
+const { title, description = 'Aegis Reportage covers campus, community, trending and national news.', current = '', image } = Astro.props;
+const pageTitle = title ? `${title} | Aegis Reportage` : 'Aegis Reportage | Campus to country. Verified.';
+const latest = (await getCollection('stories')).sort(byDate)[0];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  {image && <meta property="og:image" content={image} />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Franklin:wght@600;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="strip"><div class="wrap"><span id="today"></span></div></div>
+
+  <header class="masthead">
+    <a class="mark" href="/" aria-label="Aegis Reportage home">
+      <svg viewBox="0 0 64 76" aria-hidden="true">
+        <path d="M32 3 59 13v22c0 17-11 30-27 38C16 65 5 52 5 35V13Z" fill="#C8102E"/>
+        <path d="M32 11 51 18v17c0 12-7 22-19 28C20 57 13 47 13 35V18Z" fill="#0B1F3A"/>
+        <path d="M32 19 41 49h-4l-2-6h-6l-2 6h-4Zm0 11-2.4 8h4.8Z" fill="#FAF8F4"/>
+      </svg>
+      <h1>Aegis Reportage</h1>
+    </a>
+    <p class="tagline">Campus to country. Verified.</p>
+  </header>
+  <div class="redline"></div>
+
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <ul>
+        <li><a href="/" aria-current={current === 'home' ? 'page' : undefined}>Home</a></li>
+        {Object.entries(CATEGORIES).map(([key, c]) => (
+          <li><a href={`/category/${key}/`} aria-current={current === key ? 'page' : undefined}>{c.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+  {latest && (
+    <div class="breaking"><div class="wrap">
+      <span class="badge">Latest</span>
+      <a href={`/stories/${latest.id}/`}>{latest.data.title}</a>
+    </div></div>
+  )}
+
+  <slot />
+
+  <footer>
+    <div class="wrap">
+      <div class="fgrid">
+        <div>
+          <div class="brand">Aegis Reportage</div>
+          <p>Campus to country. Verified. A student news project for Online Journalism.</p>
+        </div>
+        <div>
+          <h4>Sections</h4>
+          <ul>{Object.entries(CATEGORIES).map(([key, c]) => <li><a href={`/category/${key}/`}>{c.label}</a></li>)}</ul>
+        </div>
+      </div>
+      <div class="legal">&copy; 2026 Aegis Reportage. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    document.getElementById('today').textContent =
+      new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  </script>
+</body>
+</html>

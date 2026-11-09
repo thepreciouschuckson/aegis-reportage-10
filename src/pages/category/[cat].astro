@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/Card.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { CATEGORIES, byDate } from '../../lib/site';
+
+export function getStaticPaths() {
+  return Object.keys(CATEGORIES).map((cat) => ({ params: { cat } }));
+}
+const { cat } = Astro.params;
+const c = CATEGORIES[cat as keyof typeof CATEGORIES];
+const items = (await getCollection('stories')).filter((s) => s.data.category === cat).sort(byDate);
+---
+<Base title={c.label} current={cat} description={`${c.label} stories from Aegis Reportage.`}>
+  <main class="page">
+    <div>
+      <div class="sec-head" style={`--c:${c.color}`}><h2>{c.label}</h2></div>
+      {items.length
+        ? <div class="grid2">{items.map((s) => <Card entry={s} />)}</div>
+        : <p class="empty">Stories coming soon.</p>}
+    </div>
+    <Sidebar />
+  </main>
+</Base>
