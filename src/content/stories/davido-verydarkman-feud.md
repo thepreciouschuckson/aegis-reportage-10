@@ -4,10 +4,10 @@ summary: "VeryDarkMan says he felt betrayed after finding a WhatsApp group chat 
 category: trending
 date: 2026-11-05
 author: "Patience Anefu Mathias"
-# image: /images/davido-verydarkman.jpg
+image: /images/davido-verydarkman.jpg
 imageAlt: "Describe the photo here"
 imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCredit: "Wahala Room"
 tags: ["Davido", "VeryDarkMan", "Social media"]
 ---
 The disagreement between Afrobeats star David Adeleke, known as Davido, and social media activist Martins Vincent Otse, known as VeryDarkMan, has drawn wide reaction online. Fresh allegations about how their friendship ended set off the latest round.

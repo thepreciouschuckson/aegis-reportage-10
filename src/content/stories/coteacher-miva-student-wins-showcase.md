@@ -3,7 +3,7 @@ title: "Miva student's AI learning platform wins Lagos technology showcase"
 summary: "Esih Egwurube's Coteacher platform took first place at a showcase that paired 100 Miva developers with 100 Andela engineers."
 category: campus
 date: 2026-10-30
-author: "Ruthella Simeon-Rufus"
+author: "Annabelle Enebeli & Ruthella Simeon-Rufus"
 image: /images/coteacher.jpg
 imageAlt: "Describe the photo here"
 imageCaption: "Add caption here."

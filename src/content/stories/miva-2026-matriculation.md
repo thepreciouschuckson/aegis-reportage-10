@@ -3,7 +3,7 @@ title: "Miva welcomes 12,260 new students at 2026 matriculation"
 summary: "The university says it plans study centres in every local government area and wants to reach one million African learners within a decade."
 category: campus
 date: 2026-10-17
-author: "Ruthella Simeon-Rufus"
+author: "Annabelle Enebeli & Ruthella Simeon-Rufus"
 image: /images/miva-matriculation.jpg
 imageAlt: "Describe the photo here"
 imageCaption: "Add caption here."
