@@ -6,8 +6,8 @@ date: 2026-10-15
 author: "Annabelle Enebeli"
 image: /images/power-grid.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCaption: "Minister of Power, Joseph Tegbe"
+imageCredit: "Naija News"
 tags: ["Power", "Energy", "Infrastructure"]
 ---
 The Federal Government has approved plans to build new eastern and western electricity grids. The move aims to reduce Nigeria's recurring grid collapses and strengthen its transmission network.

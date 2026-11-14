@@ -6,7 +6,7 @@ date: 2026-11-14
 author: "Aegis Reportage Staff"
 image: /images/natasha-osawaru-2baba.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
+imageCaption: "Singer 2BaBa and wife, Edo State politician Natasha Osawaru"
 imageCredit: "New Telegraph"
 tags: ["2Baba", "Annie Idibia", "Natasha Osawaru", "Social media"]
 ---

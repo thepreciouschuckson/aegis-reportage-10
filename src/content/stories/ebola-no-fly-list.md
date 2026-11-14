@@ -7,8 +7,8 @@ author: "Aegis Reportage Staff"
 featured: true
 image: /images/ebola-no-fly-list.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCaption: "Minister of Aviation and Aerospace Development, Festus Keyamo"
+imageCredit: "The Guardian Nigeria"
 tags: ["Ebola", "Health", "Aviation"]
 ---
 The Federal Government has placed 46 people exposed to Nigeria's Ebola patient on a 21-day no-fly list.

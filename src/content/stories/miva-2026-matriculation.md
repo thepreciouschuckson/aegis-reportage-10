@@ -6,8 +6,8 @@ date: 2026-10-17
 author: "Annabelle Enebeli & Ruthella Simeon-Rufus"
 image: /images/miva-matriculation.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCaption: "2026 Miva Matriculation"
+imageCredit: "Miva University"
 tags: ["Miva", "Education", "Matriculation"]
 ---
 [Miva Open University](https://miva.edu.ng) has matriculated 12,260 new students and announced plans to expand technology-driven education and reach one million African learners over the next decade.

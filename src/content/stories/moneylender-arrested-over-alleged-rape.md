@@ -6,7 +6,7 @@ date: 2026-11-12
 author: "Annabelle Enebeli"
 image: /images/abuja-moneylender-arrest.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
+imageCaption: "Arrested moneylender"
 imageCredit: "Dateline Nigeria"
 tags: ["Abuja", "FCT Police", "Sexual violence", "Loans"]
 ---

@@ -6,7 +6,7 @@ date: 2026-11-05
 author: "Patience Anefu Mathias"
 image: /images/davido-verydarkman.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
+imageCaption: "VeryDarkMan, Davido"
 imageCredit: "Wahala Room"
 tags: ["Davido", "VeryDarkMan", "Social media"]
 ---

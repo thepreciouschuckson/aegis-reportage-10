@@ -6,8 +6,8 @@ date: 2026-10-15
 author: "Annabelle Enebeli"
 image: /images/un-human-rights-council.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCaption: "The United Nations General Assembly"
+imageCredit: "Bashir Ahmad on Twitter"
 tags: ["United Nations", "Human rights", "Foreign affairs"]
 ---
 Nigeria has been elected to the United Nations Human Rights Council for the 2027 to 2029 term. It won 172 of the 181 valid votes cast by the UN General Assembly, [the federal government said](https://fmino.gov.ng/nigeria-elected-to-the-human-rights-council-for-the-2027-2029-term/).

@@ -6,8 +6,7 @@ date: 2026-11-05
 author: "Patience Anefu Mathias"
 image: /images/lagos-sanitation.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCredit: "Vanguard News"
 tags: ["Lagos", "Sanitation", "Flooding"]
 ---
 The Lagos State Government has renewed its call for proper waste disposal. Officials say residents in several communities are dumping refuse into drainage channels, which raises the risk of flooding. [The government made the warning](https://www.vanguardngr.com/2026/11/drainage-lagos-govt-warns-against-indiscriminate-refuse-dumping/) after the October edition of the state's monthly environmental sanitation exercise.

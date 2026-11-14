@@ -6,8 +6,7 @@ date: 2026-11-02
 author: "Olumofa Favour Ziakede"
 image: /images/inec-voter-register.jpg
 imageAlt: "INEC officials verifying a voter's biometrics"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCredit: "Infogiant"
 tags: ["INEC", "Elections", "AI"]
 ---
 The [Independent National Electoral Commission](https://inecnigeria.org) (INEC) has flagged 268 records on Nigeria's preliminary voters register over suspected AI-generated images and other irregularities. The flag comes ahead of the 2027 general elections, [Punch reported](https://punchng.com/inec-flags-268-records-over-ai-photos-irregularities).

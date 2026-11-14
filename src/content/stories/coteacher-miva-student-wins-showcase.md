@@ -6,8 +6,8 @@ date: 2026-10-30
 author: "Annabelle Enebeli & Ruthella Simeon-Rufus"
 image: /images/coteacher.jpg
 imageAlt: "Describe the photo here"
-imageCaption: "Add caption here."
-imageCredit: "Add photo credit here"
+imageCaption: "Winners, Codex in Action"
+imageCredit: "Nigeria Education News"
 tags: ["Miva", "AI", "Education", "Technology"]
 ---
 A learning platform built by [Miva Open University](https://miva.edu.ng) student Esih Egwurube has won a Lagos showcase of artificial intelligence (AI) solutions for education and lifelong learning.
